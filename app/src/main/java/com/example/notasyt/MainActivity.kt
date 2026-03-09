@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.notasyt.data.NotaDataSource
 import com.example.notasyt.screens.NotasScreen
 import com.example.notasyt.ui.theme.NotasYTTheme
 
@@ -23,7 +24,9 @@ class MainActivity : ComponentActivity() {
             NotasYTTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Box(modifier = Modifier.padding(innerPadding)) {
-                        NotasScreen()
+                        NotasScreen(
+                            notas = NotaDataSource().loadNotas(),
+                        )
                     }
 
                 }
